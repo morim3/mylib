@@ -1,0 +1,15 @@
+[[plugins]]
+  repo='Shougo/dein.vim'
+[[plugins]]
+  repo='Shougo/vimproc.vim'
+[[plugins]]
+  repo='w0ng/vim-hybrid'
+[[plugins]]
+  repo='cohama/lexima.vim'
+[[plugins]]
+  repo = 'markonm/traces.vim'
+[[plugins]]
+  repo = 'vim-airline/vim-airline'
+[[plugins]]
+  repo = 'vim-airline/vim-airline-themes'
+
