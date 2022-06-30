@@ -1,3 +1,16 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -5,10 +18,7 @@ SAVEHIST=1000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/morim/.zshrc'
 
-autoload -Uz compinit
-compinit
 # End of lines added by compinstall
 
 setopt auto_cd
@@ -36,10 +46,18 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
 alias grep='grep --color=auto'
+alias vim='nvim'
+if [[ -x `which colordiff` ]]; then
+  alias diff='colordiff'
+fi
 
-export PATH="$HOME/.pyenv/bin:$PATH"
-export PATH="$HOME/local/bin:$PATH"
-export PATH="$HOME/local/bin/mylib:$PATH"
-export PYTHONPATH="$HOME/pycharm_tmp/HMIRL/:$PYTHONPATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# opam configuration
+[[ ! -r /home/morim/.opam/opam-init/init.zsh ]] || source /home/morim/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+export PYTHONPATH="$PYTHONPATH:/mnt/c/Users/morim/PycharmProjects/HM-IRL"
+export PYTHONPATH="$PYTHONPATH:/home/morim/research/HM-IRL"
+
+export PATH="/home/morim/.deno/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
