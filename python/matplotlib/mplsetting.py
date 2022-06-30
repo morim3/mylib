@@ -1,3 +1,6 @@
+# SciencePlotsのほうが最強なので必要なし
+
+
 def get_costom_rcparams():
     # based on seaborn-paper context
     customrc = {
