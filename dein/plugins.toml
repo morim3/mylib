@@ -1,15 +1,56 @@
-[[plugins]]
-  repo='Shougo/dein.vim'
-[[plugins]]
-  repo='Shougo/vimproc.vim'
-[[plugins]]
-  repo='w0ng/vim-hybrid'
-[[plugins]]
-  repo='cohama/lexima.vim'
-[[plugins]]
-  repo = 'markonm/traces.vim'
-[[plugins]]
-  repo = 'vim-airline/vim-airline'
-[[plugins]]
-  repo = 'vim-airline/vim-airline-themes'
 
+[[plugins]]
+repo = 'preservim/nerdtree'
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+build = 'cd app & yarn install'
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'kat0h/bufpreview.vim'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+    let g:lightline = { 'colorscheme': 'wombat' }
+    set laststatus=2
+    set noshowmode
+'''
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+hook_post_update = 'TSUpdate'
+hook_source = '''
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = 'all',
+    highlight = {
+        enable = true,
+        disable = { 'vim', 'swift' },
+    },
+    indent = {
+        enable = true,
+    },
+}
+EOF
+'''
+
+
+[[plugins]]
+repo = 'EdenEast/nightfox.nvim'
+depends = 'nvim-treesitter'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+merged = '0'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+hook_add = '''
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+'''
